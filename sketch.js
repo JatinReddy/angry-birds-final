@@ -11,9 +11,12 @@ var world, engine;
 var ground;
 var box1;
 var bgImage;
+var sling1,sling2;
 
 function preload(){
   bgImage = loadImage("sprites/bg.png");
+  sling1 = loadImage("sprites/sling1.png");
+  sling2 = loadImage("sprites/sling2.png");
 }
 
 function setup() {
@@ -27,6 +30,7 @@ function setup() {
   // PI radians = 180 degrees
   
   ground = new Ground(600,390,1200,10);
+  platform = new Ground(150,310,300,160);
   box1 = new Box(600,350,60,60);
   box2 = new Box(800,350,60,60);
   box3 = new Box(600,270,60,60);
@@ -36,8 +40,10 @@ function setup() {
   log2 = new Log(700,230,290,PI/2);
   log3 = new Log(650,150,150,PI/4);
   log4 = new Log(750,150,150,-PI/4);
-  bird = new Bird(100,200);
-  sling = new Slingshot(bird.body,{x: 100,y:100});
+  bird = new Bird(186,63);
+  sling = new Slingshot(bird.body,{x: 186,y:63});
+
+
 
   
   
@@ -66,8 +72,14 @@ function draw() {
   box5.display();
   log3.display();
   log4.display();
+  platform.display();
+  image(sling1,180,35);
   bird.display();
   sling.display();
+  image(sling2,150,30)
+  
+
+  text(mouseX +","+ mouseY,mouseX,mouseY);
 
  
   
