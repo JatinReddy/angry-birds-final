@@ -38,8 +38,8 @@ function setup() {
   box5 = new Box(700,190,60,60);
   log1 = new Log(700,310,290,PI/2);
   log2 = new Log(700,230,290,PI/2);
-  log3 = new Log(650,150,150,PI/4);
-  log4 = new Log(750,150,150,-PI/4);
+  log3 = new Log(650,150,150,PI/6);
+  log4 = new Log(750,150,150,-PI/6);
   bird = new Bird(186,63);
   sling = new Slingshot(bird.body,{x: 186,y:63});
 
@@ -91,4 +91,10 @@ Matter.Body.setPosition(bird.body,{x:mouseX, y:mouseY});
 
 function mouseReleased(){
   sling.fly()
+}
+
+function keyPressed(){
+  if (keyCode === 32){
+    sling.attach(bird.body)
+  }
 }

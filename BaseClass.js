@@ -3,6 +3,7 @@ class BaseClass{
         var options = {
             restitution : 0.5,
             friction : 1,
+            density : 0.008
             
             
         }
@@ -24,5 +25,8 @@ class BaseClass{
         image(this.image,0,0,this.width,this.height)
         pop();
     }
-
+//can you hear me??
+// no mam
+//recconnect session
+//ASCII code -
 }
