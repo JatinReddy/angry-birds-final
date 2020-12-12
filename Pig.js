@@ -7,7 +7,7 @@ class Pig extends BaseClass {
     }
     display(){
         
-        console.log(this.body.speed);
+        //console.log(this.body.speed);
 
         if (this.body.speed < 5){
             super.display();
