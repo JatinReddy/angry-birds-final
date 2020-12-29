@@ -14,6 +14,7 @@ var bgImage;
 var sling1,sling2;
 var gameState = "onSling";
 var backgroundIMG;
+var score = 0;
 
 
 //Types of data
@@ -114,6 +115,8 @@ function draw() {
   else{
     background("lightblue")
   }
+
+  text("score = " + score,1005,52);
   // updating the engine
   Engine.update(engine);
   rectMode(CENTER);
@@ -135,7 +138,10 @@ function draw() {
   image(sling1,180,35);
   bird.display();
   sling.display();
-  image(sling2,150,30)
+  image(sling2,150,30);
+
+  pig1.score();
+  pig2.score();
   
 
   text(mouseX +","+ mouseY,mouseX,mouseY);
@@ -157,7 +163,12 @@ function mouseReleased(){
 
 function keyPressed(){
   if (keyCode === 32){
-    sling.attach(bird.body)
+    Matter.Body.setPosition(bird.body,{x:186,y:63});
+    Matter.Body.setAngularVelocity(bird.body,0);
+    Matter.Body.setAngle(bird.body,0);
+    sling.attach(bird.body);
+    bird.trajectory = [];
+
   }
 }
 //asynchronous
